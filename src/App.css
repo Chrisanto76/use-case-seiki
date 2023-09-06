@@ -1,0 +1,20 @@
+body {
+  height: 100vh;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  
+}
+.main--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.chart--display {
+  background-color: rgb(234, 243, 243);
+  border-radius: 20px;
+  border: 1px solid rgb(206, 210, 210);
+}
+
+
