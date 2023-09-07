@@ -1,72 +1,39 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import Chart from 'react-apexcharts';
+// App.js
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import React from 'react';
+import BarChart from './components/BarChart/';
+import FootfallChart from './components/FootfallChart/';
 
-const App = () => {
-	const [category, setCategory] = useState();
-	const [data, setData] = useState();
-
+function App() {
+	const [data, setData] = useState([]);
 	useEffect(() => {
-		const name = [];
-		const age = [];
 		axios
-			.get('https://randomuser.me/api/?results=20')
-			.then((response) => {
-				console.log('response', response);
-				response.data.results.map((data) => {
-					console.log('data', data);
-					name.push(data.name.first);
-					age.push(data.dob.age);
-				});
-				setCategory(name);
-				setData(age);
-				// 	setObject({
-				// 		chart: {
-				// 			id: 'apexchart-example',
-				// 		},
-				// 		xaxis: {
-				// 			categories: name,
-				// 		},
-				// 	});
-				// 	setSeries([
-				// 		{
-				// 			name: 'age',
-				// 			data: age,
-				// 		},
-				// 	]);
-				// });
-
-				console.log('name', name, age);
+			.get('https://api.seiki.co/v1/pois', {
+				headers: {
+					'X-API-KEY':
+						'XgxHDnDJGSFLck-puloZZhyDaaycszcpsNjIMLkuX6gXzL5Dsdp1jypopfbvwQx8J-ywLNV0FxEleNIrW2OjgWLM60d9FFQxFlpTg7Glz61BQMVU7PUUob89U-NzltyMB4XsEQ',
+				},
 			})
-			.catch((e) => {
-				alert(e);
+			.then((response) => {
+				setData(response.data.items);
+			})
+			.catch((error) => {
+				console.error('Erreur lors de la récupération des données:', error);
 			});
 	}, []);
+
 	return (
 		<div className="main--container">
-			<Chart
-				className="chart--display"
-				options={{
-					chart: {
-						id: 'apexchart-example',
-					},
-					xaxis: {
-						categories: category,
-					},
-				}}
-				series={[
-					{
-						name: 'age',
-						data: data,
-					},
-				]}
-				type="bar"
-				width={600}
-				height={400}
-			/>
+			<div className="App">
+				<div>
+					<BarChart data={data} />
+				</div>
+			</div>
+			<div className="App">
+				<FootfallChart data={data} />
+			</div>
 		</div>
 	);
-};
+}
+
 export default App;
