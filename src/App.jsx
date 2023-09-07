@@ -25,7 +25,7 @@ function App() {
 
 	return (
 		<>
-			<h1>SEIKI</h1>
+			<h1>seiki</h1>
 			<div className="main--container">
 				<div className="App">
 					<div>
@@ -36,7 +36,7 @@ function App() {
 					<LineChart data={data} />
 				</div>
 			</div>
-			<div className="App">
+			<div className="donut--container">
 				<DonutChart data={data} />
 			</div>
 		</>

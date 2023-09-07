@@ -25,10 +25,11 @@ function BarChart({ data }) {
 					stroke: {
 						width: 5,
 						curve: 'smooth',
+						colors: ['#F9C80E'],
 					},
 					markers: {
 						size: 5,
-						colors: ['#6EEAE7'],
+						colors: ['	#FF9800'],
 					},
 					xaxis: {
 						categories: data.map((item) => item.address),
@@ -37,7 +38,7 @@ function BarChart({ data }) {
 						y: {
 							formatter: function (val) {
 								// Utilisez toFixed(2) pour tronquer au deuxième chiffre après la virgule
-								return val.toFixed(7);
+								return val.toFixed(3);
 							},
 						},
 					},
@@ -47,7 +48,7 @@ function BarChart({ data }) {
 						style: {
 							fontSize: '16px',
 							fontWeight: '400',
-							fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+							fontFamily: 'Poppins, sans-serif',
 							color: '#444',
 						},
 					},
@@ -91,7 +92,7 @@ function BarChart({ data }) {
 				]}
 				type="line"
 				height={200}
-				width={500}
+				width={600}
 			/>
 		</div>
 	);

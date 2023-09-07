@@ -51,7 +51,7 @@ function FootfallChart({ data }) {
 						align: 'center',
 						style: {
 							fontSize: '16px',
-							fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+							fontFamily: 'Poppins, sans-serif',
 							fontWeight: '400',
 							color: '#444',
 						},
@@ -70,17 +70,17 @@ function FootfallChart({ data }) {
 						},
 					],
 					theme: {
-						palette: 'palette8', // upto palette10
+						palette: 'palette8',
 					},
 					dataLabels: {
 						enabled: true,
 					},
-					grid: {
-						row: {
-							colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-							opacity: 0.5,
-						},
-					},
+					// grid: {
+					// 	row: {
+					// 		colors: ['#f3f3f3', 'transparent'],
+					// 		opacity: 0.5,
+					// 	},
+					// },
 				}}
 				series={[
 					{

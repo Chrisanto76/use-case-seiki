@@ -58,18 +58,19 @@ const DonutChart = ({ data }) => {
 		labels: data.map((item) => item.address), // Les étiquettes de chaque section du Donut
 		legend: {
 			show: true, // Afficher la légende
-			position: 'left', // Position de la légende (peut être modifiée)
+			position: 'left',
 		},
 		theme: {
-			palette: 'palette8', // upto palette10
+			palette: 'palette1', // upto palette10
 		},
+
 		title: {
 			text: 'Latitude des POIS',
-			align: 'left',
+			align: 'center',
 			style: {
 				fontSize: '16px',
 				fontWeight: '400',
-				fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+				fontFamily: 'Poppins, sans-serif',
 				color: '#444',
 			},
 		},
