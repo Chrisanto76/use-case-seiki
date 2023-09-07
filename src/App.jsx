@@ -7,7 +7,6 @@ import DonutChart from './components/DonutChart/';
 import PieChart from './components/PieChart';
 import { Container, Row, Col } from 'react-bootstrap';
 import { ThemeProvider } from 'react-bootstrap';
-import MyMapComponent from './components/MapComponent';
 
 function App() {
 	const [data, setData] = useState([]);
@@ -53,11 +52,9 @@ function App() {
 								<PieChart data={data} />
 							</Col>
 						</Row>
-						<Row>
-							<Col md={6} className="">
-								<MyMapComponent data={data} />
-							</Col>
-						</Row>
+						{/* <Row>
+							<MapComponent />
+						</Row> */}
 					</Container>
 				</div>
 			</ThemeProvider>
