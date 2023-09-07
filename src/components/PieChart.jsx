@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-const DonutChart = ({ data }) => {
+const PieChart = ({ data }) => {
 	const options = {
 		chart: {
-			type: 'donut',
+			type: 'pie',
 			toolbar: {
 				show: false,
 			},
@@ -13,15 +13,14 @@ const DonutChart = ({ data }) => {
 		legend: {
 			show: true,
 			position: 'bottom',
-			horizontalAlign: 'center',
 			fontWeight: '200',
 		},
 		theme: {
-			palette: 'palette1', // upto palette10
+			palette: 'palette10', // upto palette10
 		},
 
 		title: {
-			text: 'POI Average daily flow',
+			text: 'POI soft mode',
 			align: 'center',
 			style: {
 				fontSize: '20px',
@@ -40,6 +39,9 @@ const DonutChart = ({ data }) => {
 					legend: {
 						position: 'bottom',
 					},
+					title: {
+						align: 'center',
+					},
 				},
 			},
 		],
@@ -49,8 +51,8 @@ const DonutChart = ({ data }) => {
 		<div className="donut-chart">
 			<ReactApexChart
 				options={options}
-				series={data.map((item) => item.data.traffic.avg_daily_flow)}
-				type="donut"
+				series={data.map((item) => item.data.mode.soft_mode)}
+				type="pie"
 				height={400}
 				width={500}
 			/>
@@ -58,4 +60,4 @@ const DonutChart = ({ data }) => {
 	);
 };
 
-export default DonutChart;
+export default PieChart;

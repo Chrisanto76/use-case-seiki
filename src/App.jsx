@@ -4,6 +4,10 @@ import axios from 'axios';
 import BarChart from './components/BarChart/';
 import LineChart from './components/LineChart/';
 import DonutChart from './components/DonutChart/';
+import PieChart from './components/PieChart';
+import { Container, Row, Col } from 'react-bootstrap';
+import { ThemeProvider } from 'react-bootstrap';
+import MyMapComponent from './components/MapComponent';
 
 function App() {
 	const [data, setData] = useState([]);
@@ -25,20 +29,39 @@ function App() {
 
 	return (
 		<>
-			<h1>seiki</h1>
-			<div className="main--container">
-				<div className="App">
-					<div>
-						<BarChart data={data} />
-					</div>
+			<ThemeProvider
+				breakpoints={['xxxl', 'xxl', 'xl', 'md', 'sm', 'xs', 'xxs']}
+				minBreakpoint="xxs"
+			>
+				<div className="header">Use Case Seiki</div>
+				<div className="boot--container">
+					<Container fluid className="m-5">
+						<Row className="">
+							<Col md={5} className="App">
+								<DonutChart data={data} />
+							</Col>
+							<Col md={7} className="App">
+								<BarChart data={data} />
+							</Col>
+						</Row>
+
+						<Row>
+							<Col md={6} className="App">
+								<LineChart data={data} />
+							</Col>
+							<Col md={6} className="App">
+								<PieChart data={data} />
+							</Col>
+						</Row>
+						<Row>
+							<Col md={6} className="">
+								<MyMapComponent data={data} />
+							</Col>
+						</Row>
+					</Container>
 				</div>
-				<div className="App">
-					<LineChart data={data} />
-				</div>
-			</div>
-			<div className="donut--container">
-				<DonutChart data={data} />
-			</div>
+			</ThemeProvider>
+			;
 		</>
 	);
 }

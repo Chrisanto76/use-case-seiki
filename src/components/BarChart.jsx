@@ -14,13 +14,17 @@ function FootfallChart({ data }) {
 							borderRadius: 10,
 							dataLabels: {
 								position: 'top',
+								enabled: true,
+								formatter: function (val) {
+									return val + '%';
+								},
 							},
 						},
 					},
 
 					chart: {
 						id: 'apexchart-example',
-						stacked: false,
+						stacked: true,
 						dropShadow: {
 							enabled: true,
 							enabledOnSeries: undefined,
@@ -29,6 +33,9 @@ function FootfallChart({ data }) {
 							blur: 2,
 							color: '#000',
 							opacity: 0.35,
+						},
+						toolbar: {
+							show: false,
 						},
 					},
 
@@ -47,10 +54,10 @@ function FootfallChart({ data }) {
 						},
 					},
 					title: {
-						text: 'Average speed of the POIS',
+						text: 'POI average speed',
 						align: 'center',
 						style: {
-							fontSize: '16px',
+							fontSize: '20px',
 							fontFamily: 'Poppins, sans-serif',
 							fontWeight: '400',
 							color: '#444',
@@ -58,10 +65,10 @@ function FootfallChart({ data }) {
 					},
 					responsive: [
 						{
-							breakpoint: 480,
+							breakpoint: 768,
 							options: {
 								chart: {
-									width: 200, // Largeur du graphique pour les écrans plus petits
+									width: 500, // Largeur du graphique pour les écrans plus petits
 								},
 								legend: {
 									position: 'bottom',
@@ -75,12 +82,12 @@ function FootfallChart({ data }) {
 					dataLabels: {
 						enabled: true,
 					},
-					// grid: {
-					// 	row: {
-					// 		colors: ['#f3f3f3', 'transparent'],
-					// 		opacity: 0.5,
-					// 	},
-					// },
+					grid: {
+						row: {
+							colors: ['#f3f3f3', 'transparent'],
+							opacity: 0.5,
+						},
+					},
 				}}
 				series={[
 					{
@@ -89,8 +96,8 @@ function FootfallChart({ data }) {
 					},
 				]}
 				type="bar"
-				height={200}
-				width={500}
+				height={300}
+				width={700}
 			/>
 		</div>
 	);

@@ -11,8 +11,6 @@ function BarChart({ data }) {
 						line: {
 							distributed: true,
 							horizontal: true,
-							barHeight: '70%',
-							borderRadius: 10,
 							dataLabels: {
 								position: 'top',
 							},
@@ -34,6 +32,12 @@ function BarChart({ data }) {
 					xaxis: {
 						categories: data.map((item) => item.address),
 					},
+					yaxis: {
+						labels: {
+							show: true,
+						},
+					},
+
 					tooltip: {
 						y: {
 							formatter: function (val) {
@@ -43,10 +47,10 @@ function BarChart({ data }) {
 						},
 					},
 					title: {
-						text: 'Latitude des POIS',
+						text: 'POI longitudes',
 						align: 'center',
 						style: {
-							fontSize: '16px',
+							fontSize: '20px',
 							fontWeight: '400',
 							fontFamily: 'Poppins, sans-serif',
 							color: '#444',
@@ -60,38 +64,26 @@ function BarChart({ data }) {
 					},
 					responsive: [
 						{
-							breakpoint: 480,
+							breakpoint: 768,
 							options: {
 								chart: {
-									width: 200, // Largeur du graphique pour les écrans plus petits
+									width: 500, // Largeur du graphique pour les écrans plus petits
 								},
 								legend: {
-									position: 'bottom',
+									enabled: false,
 								},
 							},
 						},
 					],
-
-					// fill: {
-					// 	type: 'gradient',
-					// 	gradient: {
-					// 		shade: 'dark',
-					// 		gradientToColors: ['#FDD835'],
-					// 		shadeIntensity: 1,
-					// 		opacityFrom: 1,
-					// 		opacityTo: 1,
-					// 		stops: [0, 100, 100, 100],
-					// 	},
-					// },
 				}}
 				series={[
 					{
-						name: 'latitude',
-						data: data.map((item) => item.lat),
+						name: 'longitude',
+						data: data.map((item) => item.lng),
 					},
 				]}
 				type="line"
-				height={200}
+				height={300}
 				width={600}
 			/>
 		</div>
