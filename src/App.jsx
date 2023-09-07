@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import BarChart from './components/BarChart/';
-import FootfallChart from './components/FootfallChart/';
+import LineChart from './components/LineChart/';
+import DonutChart from './components/DonutChart/';
 
 function App() {
 	const [data, setData] = useState([]);
@@ -23,16 +24,22 @@ function App() {
 	}, []);
 
 	return (
-		<div className="main--container">
-			<div className="App">
-				<div>
-					<BarChart data={data} />
+		<>
+			<h1>SEIKI</h1>
+			<div className="main--container">
+				<div className="App">
+					<div>
+						<BarChart data={data} />
+					</div>
+				</div>
+				<div className="App">
+					<LineChart data={data} />
 				</div>
 			</div>
 			<div className="App">
-				<FootfallChart data={data} />
+				<DonutChart data={data} />
 			</div>
-		</div>
+		</>
 	);
 }
 

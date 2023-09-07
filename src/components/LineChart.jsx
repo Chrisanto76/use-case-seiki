@@ -1,13 +1,14 @@
+// BarChart.jsx
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-function FootfallChart({ data }) {
+function BarChart({ data }) {
 	return (
 		<div>
 			<ReactApexChart
 				options={{
 					plotOptions: {
-						bar: {
+						line: {
 							distributed: true,
 							horizontal: true,
 							barHeight: '70%',
@@ -17,44 +18,44 @@ function FootfallChart({ data }) {
 							},
 						},
 					},
-
 					chart: {
 						id: 'apexchart-example',
-						stacked: false,
-						dropShadow: {
-							enabled: true,
-							enabledOnSeries: undefined,
-							top: 0,
-							left: 0,
-							blur: 2,
-							color: '#000',
-							opacity: 0.35,
-						},
+						toolbar: { show: false },
 					},
-
+					stroke: {
+						width: 5,
+						curve: 'smooth',
+					},
+					markers: {
+						size: 5,
+						colors: ['#6EEAE7'],
+					},
 					xaxis: {
-						categories: data.map((item) => item.data.section.name),
-					},
-					yaxis: {
-						reversed: true,
+						categories: data.map((item) => item.address),
 					},
 					tooltip: {
 						y: {
 							formatter: function (val) {
 								// Utilisez toFixed(2) pour tronquer au deuxième chiffre après la virgule
-								return val.toFixed(2);
+								return val.toFixed(7);
 							},
 						},
 					},
 					title: {
-						text: 'Average speed of the POIS',
+						text: 'Latitude des POIS',
 						align: 'center',
 						style: {
 							fontSize: '16px',
-							fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
 							fontWeight: '400',
+							fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
 							color: '#444',
 						},
+					},
+					theme: {
+						palette: 'palette8', // upto palette10
+					},
+					dataLabels: {
+						enabled: false,
 					},
 					responsive: [
 						{
@@ -69,26 +70,26 @@ function FootfallChart({ data }) {
 							},
 						},
 					],
-					theme: {
-						palette: 'palette8', // upto palette10
-					},
-					dataLabels: {
-						enabled: true,
-					},
-					grid: {
-						row: {
-							colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-							opacity: 0.5,
-						},
-					},
+
+					// fill: {
+					// 	type: 'gradient',
+					// 	gradient: {
+					// 		shade: 'dark',
+					// 		gradientToColors: ['#FDD835'],
+					// 		shadeIntensity: 1,
+					// 		opacityFrom: 1,
+					// 		opacityTo: 1,
+					// 		stops: [0, 100, 100, 100],
+					// 	},
+					// },
 				}}
 				series={[
 					{
-						name: 'average speed',
-						data: data.map((item) => item.data.section.avg_speed),
+						name: 'latitude',
+						data: data.map((item) => item.lat),
 					},
 				]}
-				type="bar"
+				type="line"
 				height={200}
 				width={500}
 			/>
@@ -96,4 +97,4 @@ function FootfallChart({ data }) {
 	);
 }
 
-export default FootfallChart;
+export default BarChart;
