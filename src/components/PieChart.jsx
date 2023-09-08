@@ -6,7 +6,7 @@ const PieChart = ({ data }) => {
 		chart: {
 			type: 'pie',
 			toolbar: {
-				show: false,
+				show: true,
 			},
 		},
 		labels: data.map((item) => item.address),

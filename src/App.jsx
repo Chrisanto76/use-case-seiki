@@ -34,7 +34,7 @@ function App() {
 			>
 				<div className="header">Use Case Seiki</div>
 				<div className="boot--container">
-					<Container fluid className="m-5">
+					<Container fluid className="">
 						<Row className="">
 							<Col md={5} className="App">
 								<DonutChart data={data} />
