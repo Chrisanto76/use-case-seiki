@@ -5,6 +5,8 @@ import BarChart from './components/BarChart/';
 import LineChart from './components/LineChart/';
 import DonutChart from './components/DonutChart/';
 import PieChart from './components/PieChart';
+import Filter from './components/Filter';
+
 import { Container, Row, Col } from 'react-bootstrap';
 import { ThemeProvider } from 'react-bootstrap';
 
@@ -35,6 +37,11 @@ function App() {
 				<div className="header">Use Case Seiki</div>
 				<div className="boot--container">
 					<Container fluid className="">
+						<Row>
+							<Col md={12} className="App">
+								<Filter data={data} />
+							</Col>
+						</Row>
 						<Row className="">
 							<Col md={5} className="App">
 								<DonutChart data={data} />
