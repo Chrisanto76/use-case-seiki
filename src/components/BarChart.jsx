@@ -48,7 +48,6 @@ function FootfallChart({ data }) {
 					tooltip: {
 						y: {
 							formatter: function (val) {
-								// Utilisez toFixed(2) pour tronquer au deuxième chiffre après la virgule
 								return val.toFixed(2);
 							},
 						},
@@ -68,7 +67,7 @@ function FootfallChart({ data }) {
 							breakpoint: 768,
 							options: {
 								chart: {
-									width: 500, // Largeur du graphique pour les écrans plus petits
+									width: 500,
 								},
 								legend: {
 									position: 'bottom',

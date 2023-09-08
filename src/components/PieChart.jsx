@@ -16,7 +16,7 @@ const PieChart = ({ data }) => {
 			fontWeight: '200',
 		},
 		theme: {
-			palette: 'palette10', // upto palette10
+			palette: 'palette10',
 		},
 
 		title: {
@@ -34,7 +34,7 @@ const PieChart = ({ data }) => {
 				breakpoint: 768,
 				options: {
 					chart: {
-						width: 500, // Largeur du graphique pour les écrans plus petits
+						width: 500,
 					},
 					legend: {
 						position: 'bottom',
